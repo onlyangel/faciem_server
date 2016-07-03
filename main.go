@@ -7,6 +7,7 @@ import (
 	"os"
 	"io"
 	"os/exec"
+	"strings"
 )
 
 func main(){
@@ -50,6 +51,7 @@ func evaluatehandler(w http.ResponseWriter, r *http.Request){
 		fmt.Fprintf(w,"ERROR: %v",err)
 		return
 	}
+	out = strings.Trim(out, " \n\t")
 	fmt.Fprintf(w,"OUTPUT '%s'\n", out)
 	os.Remove(f1)
 	os.Remove(f2)
