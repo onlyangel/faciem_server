@@ -51,6 +51,8 @@ func evaluatehandler(w http.ResponseWriter, r *http.Request){
 		return
 	}
 	fmt.Fprintf(w,"OUTPUT '%s'\n", out)
+	os.Remove(f1)
+	os.Remove(f2)
 }
 
 func parseFile(r *http.Request, filevar string)(string,error){
