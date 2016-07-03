@@ -29,7 +29,6 @@ func uploadRoot(w http.ResponseWriter, r *http.Request){
 	`)
 }
 func evaluatehandler(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w, "uploaded =D")
 
 	r.ParseMultipartForm(32 << 20)
 
@@ -51,7 +50,7 @@ func evaluatehandler(w http.ResponseWriter, r *http.Request){
 		fmt.Fprintf(w,"ERROR: %v",err)
 		return
 	}
-	fmt.Printf("OUTPUT '%s'\n", out)
+	fmt.Fprintf(w,"OUTPUT '%s'\n", out)
 }
 
 func parseFile(r *http.Request, filevar string)(string,error){
