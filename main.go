@@ -51,8 +51,8 @@ func evaluatehandler(w http.ResponseWriter, r *http.Request){
 		fmt.Fprintf(w,"ERROR: %v",err)
 		return
 	}
-	out = strings.Trim(out, " \n\t")
-	fmt.Fprintf(w,"OUTPUT '%s'\n", out)
+	outstr := strings.Trim(string(out), " \n\t")
+	fmt.Fprintf(w,"OUTPUT '%s'\n", outstr)
 	os.Remove(f1)
 	os.Remove(f2)
 }
